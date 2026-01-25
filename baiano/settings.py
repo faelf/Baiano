@@ -16,7 +16,7 @@ import os
 import dj_database_url
 
 if os.path.isfile("env.py"):
-    import env
+    import env  # noqa
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -115,7 +115,10 @@ WSGI_APPLICATION = "baiano.wsgi.application"
 
 DATABASES = {"default": dj_database_url.parse(os.environ.get("DATABASE_URL"))}
 
-CSRF_TRUSTED_ORIGINS = ["https://*.codeinstitute-ide.net/", "https://*.herokuapp.com"]
+CSRF_TRUSTED_ORIGINS = [
+    "https://*.codeinstitute-ide.net/",
+    "https://*.herokuapp.com",
+]
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
@@ -164,4 +167,4 @@ STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-X_FRAME_OPTIONS = os.environ.get('X_FRAME_OPTIONS', 'DENY')
+X_FRAME_OPTIONS = os.environ.get("X_FRAME_OPTIONS", "DENY")
