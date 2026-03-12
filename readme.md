@@ -2,45 +2,19 @@
 
 ![screenshot](/readme/page-screenshot.png)
 
-## Table of Contents
-
-- [Overview](#overview)
-- [User Experience (UX)](#user-experience-ux)
-  - [Strategy (Site Goals)](#strategy-site-goals)
-  - [Scope (User Stories)](#scope-user-stories)
-  - [Structure (Design Choices)](#structure-design-choices)
-  - [Skeleton (Wireframes)](#skeleton-wireframes)
-  - [Surface (Visual Design)](#surface-visual-design)
-- [Technologies Used](#technologies-used)
-  - [Languages](#languages)
-  - [Libraries & Frameworks](#libraries--frameworks)
-  - [Tools](#tools)
-- [Deployment](#deployment)
-- [Existing Features](#existing-features)
-- [Future Features](#future-features)
-- [Testing](#testing)
-- [Bugs](#bugs)
-- [Credits](#credits)
-
----
-
-## Overview
+## 🌍 Overview
 
 The Baiano Restaurant is a fictional Brazilian restaurant, and the webpage was developed as a full-stack project for Code Institute Milestone 3. The webpage has a homepage introducing the restaurant, a menu page with its main dishes, and a login system that allows registered users to create, edit, and delete reservations.
 
 Designed with a mobile-first approach, the website is fully responsive to ensure a consistent experience across all devices. It implements CRUD functionality, where registered users can manage their reservations, while the superuser can access the admin panel to oversee all bookings and make changes as needed.
 
-[Back to the top](#table-of-contents)
-
-## User Experience (UX)
+## 🧭 User Experience (UX)
 
 Baiano Restaurant’s users are primarily people from Bahia, living abroad, and looking for Bahian food, often browsing on mobile while looking for a place to eat.
 
 Customers want to quickly have a look at the menu with images, check opening hours, and book a table. Customers can manage existing reservations, while staff/admin users can review and update bookings. The experience should feel warm, vibrant, and reminiscent of home, and accessible for all users.
 
-[Back to the top](#table-of-contents)
-
-## Strategy (Site Goals)
+## 🎯 Strategy (Site Goals)
 
 The website aims to promote Baiano Restaurant by sharing authentic Bahian dishes, and creating a sense of home for people from Bahia living abroad.
 
@@ -52,9 +26,7 @@ A mobile-first design ensures that it looks and feels comfortable on all screen 
 
 For management, the admin area enables staff to review, edit, and organise reservations, helping the restaurant operate more efficiently.
 
-[Back to the top](#table-of-contents)
-
-## Scope (User Stories)
+## 🧾 Scope (User Stories)
 
 The project is organised and tracked on GitHub Projects, which can be viewed [here](https://github.com/users/faelf/projects/4).
 
@@ -75,11 +47,23 @@ Below are the User Stories, with their acceptance criteria.
 - [Social media links](https://github.com/faelf/baiano/issues/9)
 - [Admin reviews management](https://github.com/faelf/baiano/issues/10)
 
-[Back to the top](#table-of-contents)
+## 🏗️ Structure (Design Choices)
 
-## Structure (Design Choices)
+**Templates**
 
-### Entity Relationship Diagram (ERD)
+A `base.html` template defines what is seen on every page, including the navigation bar and footer, with content injected via {% block content %}, so when the customer clicks on the `Menu` page, the `menu.html` page will extend the `base.html`. Ensuring consistancy across all pages.
+
+**Static Files**
+
+Static files such as CSS, JavaScript, and images, are managed using Django’s {% static %} tag.
+
+**Responsive Design**
+
+Bootstrap was chosen for its ease of creating a responsive design, and minimising the need for custom CSS media queries. Its column design makes it a simple way for the content on the page to adjust for various screen sizes, speeding up development and improving maintainability.
+
+Images are set with `max-width` to ensure that they stay responsive, and they will not over grow and feel disproportional.
+
+## 🧠 Entity Relationship Diagram (ERD)
 
 The ERD below outlines the relationships between `User` and `Reservation` models.
 
@@ -87,41 +71,23 @@ The ERD below outlines the relationships between `User` and `Reservation` models
   <img src="readme/erd.png" alt="ERD Diagram" width="600"/>
 </p>
 
-### Templates
+## 🩻 Skeleton (Wireframes)
 
-A `base.html` template defines what is seen on every page, including the navigation bar and footer, with content injected via {% block content %}, so when the customer clicks on the `Menu` page, the `menu.html` page will extend the `base.html`. Ensuring consistancy across all pages.
-
-### Static Files
-
-Static files such as CSS, JavaScript, and images, are managed using Django’s {% static %} tag.
-
-### Responsive Design
-
-Bootstrap was chosen for its ease of creating a responsive design, and minimising the need for custom CSS media queries. Its column design makes it a simple way for the content on the page to adjust for various screen sizes, speeding up development and improving maintainability.
-
-Images are set with `max-width` to ensure that they stay responsive, and they will not over grow and feel disproportional.
-
-[Back to the top](#table-of-contents)
-
-## Skeleton (Wireframes)
-
-### Mobile
+**Mobile**
 
 ![Mobile](/readme/wireframes/mobile.png)
 
-### Tablet
+**Tablet**
 
 ![Tablet](/readme/wireframes/tablet.png)
 
-### Desktop
+**Desktop**
 
 ![Desktop](/readme/wireframes/desktop.png)
 
-[Back to the top](#table-of-contents)
+## 🖌️ Surface (Visual Design)
 
-## Surface (Visual Design)
-
-### Colour Palette
+**Colour palette:**
 
 The colour palette is inspired by the vibrant culture of Bahia.
 
@@ -131,23 +97,21 @@ The colour palette is inspired by the vibrant culture of Bahia.
 - **Red:** Used on the `delete` button.
 - **Light Tones:** For the background, that goes well with the primary colour.
 
-### Typography
+**Typography:**
 
 - **Logo:** [Amatic SC](https://fonts.google.com/specimen/Amatic+SC) - I chose Amatic SC for the logo because its handwritten style feels very Bahian.
 - **Body Text:** [Nunito](https://fonts.google.com/specimen/Nunito) - I chose Nunito because it's a modern sans-serif font. Its rounded letters give it a friendly and welcoming look.
 
-[Back to the top](#table-of-contents)
+## ⚙️ Technologies Used
 
-## Technologies Used
-
-### Languages
+### 💬 Languages
 
 - HTML
 - CSS
 - JavaScript
 - Python
 
-### Libraries & Frameworks
+### 🧩 Libraries & Frameworks
 
 - [Bootstrap](https://getbootstrap.com/docs/5.2/)
 - [Django](https://docs.djangoproject.com/en/5.2/topics/install/)
@@ -157,7 +121,7 @@ The colour palette is inspired by the vibrant culture of Bahia.
 - [whitenoise](https://whitenoise.readthedocs.io/en/stable/index.html)
 - [django-allauth](https://django-allauth.readthedocs.io/en/latest/installation.html)
 
-### Tools
+### 🛠️ Development Tools
 
 - [Balsamiq](https://balsamiq.com/)
 - [VS Code](https://code.visualstudio.com/)
@@ -166,18 +130,16 @@ The colour palette is inspired by the vibrant culture of Bahia.
 - [Realfavicon](https://realfavicongenerator.net/)
 - [Reduceimages](https://www.reduceimages.com/)
 
-[Back to the top](#table-of-contents)
-
-## Deployment
+## 🚀 Deployment
 
 A step-by-step guide to deploying your Django project to Heroku on Windows.
 
-### GitHub Setup
+**GitHub Setup**
 
 1. Create a new repository on GitHub.
 2. Clone the repository to your local machine.
 
-### VS Code Setup
+**VS Code Setup**
 
 1. Open the cloned repository in VS Code.
 2. Create a virtual environment.
@@ -256,7 +218,7 @@ STATIC_ROOT = BASE_DIR / "staticfiles"
 23. Create requirements file. `pip freeze > requirements.txt`
 24. Commit all changes and push to GitHub.
 
-### Heroku Deployment
+**Heroku Deployment**
 
 1. Log in to the Heroku dashboard.
 2. Click **New** and select **Create new app**.
@@ -269,11 +231,9 @@ STATIC_ROOT = BASE_DIR / "staticfiles"
 7. Press **Deploy**
 8. Test the deployed site thoroughly to ensure all features work as expected.
 
-[Back to the top](#table-of-contents)
+## ✨ Existing Features
 
-## Existing Features
-
-### Navigation
+**Navigation**
 
 - A responsive navigation bar is present on all pages, providing consistent access to all pages. On small screens the navigation menu is accessible by a burger icon.
 
@@ -284,7 +244,7 @@ STATIC_ROOT = BASE_DIR / "staticfiles"
   <p align="center">
     <img src="readme/features/mobile_nav_open.png" alt="Navbar" width="600"/>
   </p>
-  
+
 - **Dynamic Links:** The navigation bar dynamically adapts based on user authentication.
 
 - **Authenticated Users:** See links for `My Bookings` and `Log out`.
@@ -299,46 +259,46 @@ STATIC_ROOT = BASE_DIR / "staticfiles"
     <img src="readme/features/nav-bar-unlog.png" alt="Navbar" width="600"/>
   </p>
 
-### Homepage
+**Homepage**
 
 The homepage introduces the restaurant, and at the same time being functional.
 
 - **Hero Section:** A full-width hero image with a welcoming message and large buttons for the customer to easily book a table or register in the restaurant.
 
-<p align="center">
-  <img src="readme/features/homepage-hero.png" alt="Hero" width="600"/>
-</p>
+  <p align="center">
+    <img src="readme/features/homepage-hero.png" alt="Hero" width="600"/>
+  </p>
 
 - **Popular Choices:** This section displays featured dishes with images and brief descriptions, giving users a quick taste of the menu.
 
-<p align="center">
-  <img src="readme/features/homepage-feat-dishes.png" alt="Feature Dishes" width="600"/>
-</p>
+  <p align="center">
+    <img src="readme/features/homepage-feat-dishes.png" alt="Feature Dishes" width="600"/>
+  </p>
 
 - **Customer Reviews:** To create a connection between customers and the restaurant.
 
-<p align="center">
-  <img src="readme/features/homepage-reviews.png" alt="Reviews" width="600"/>
-</p>
+  <p align="center">
+    <img src="readme/features/homepage-reviews.png" alt="Reviews" width="600"/>
+  </p>
 
 - **About Us:** This final section tells the story of the restaurant.
 
-<p align="center">
-  <img src="readme/features/homepage-about.png" alt="About" width="600"/>
-</p>
+  <p align="center">
+    <img src="readme/features/homepage-about.png" alt="About" width="600"/>
+  </p>
 
-### Footer
+**Footer**
 
 - **Social Media:** Button links for the YouTube, Instagram, and Facebook.
 - **Contact Information:** Phone number and email.
 - **Location:** Address of the restaurant.
 - **Opening Hours:** Hours of operation.
 
-<p align="center">
-  <img src="readme/features/footer.png" alt="Footer" width="600"/>
-</p>
+  <p align="center">
+    <img src="readme/features/footer.png" alt="Footer" width="600"/>
+  </p>
 
-### Menu
+**Menu**
 
 A menu page with pictures of the dishes to attract customers.
 
@@ -346,7 +306,7 @@ A menu page with pictures of the dishes to attract customers.
   <img src="readme/features/menu-page.png" alt="Menu Page" width="600"/>
 </p>
 
-### Login & Registration
+**Login & Registration**
 
 These features provide the main functionality, and enable a personalised experience for each user by allowing them to manage their bookings and access user-specific content.
 
@@ -354,7 +314,7 @@ These features provide the main functionality, and enable a personalised experie
   <img src="readme/features/sign-up-page.png" alt="Sign up Page" width="600"/>
 </p>
 
-### Reservations
+**Reservations**
 
 The `My Bookings` page is designed as a user page, where customers can view and manage their reservations, and feel it is their space on the webpage, implementing full CRUD functionality for managing reservations.
 
@@ -367,7 +327,7 @@ The `My Bookings` page is designed as a user page, where customers can view and 
   <img src="readme/features/crud-btns.png" alt="crud buttons" width="400"/>
 </p>
 
-### Sucess Messages
+**Sucess Messages**
 
 - Feedback messages when the user logs in, logs out, register, create a reservation, edits a reservation, or deletes a reservation.
 
@@ -375,7 +335,7 @@ The `My Bookings` page is designed as a user page, where customers can view and 
   <img src="readme/features/success-message.png" alt="messages" width="600"/>
 </p>
 
-### Progressive Web App (PWA)
+**Progressive Web App (PWA)**
 
 - The website is an installable Progressive Web App (PWA), offering an app-like experience for quick and easy access. This allows users to launch the restaurant page directly from their home screen on both mobile and desktop devices.
 
@@ -383,9 +343,7 @@ The `My Bookings` page is designed as a user page, where customers can view and 
   <img src="readme/features/pwa.png" alt="PWA" width="200"/>
 </p>
 
-[Back to the top](#table-of-contents)
-
-## Future Features
+## 🔮 Future Features
 
 These are on the GitHub Project in the To Do.
 
@@ -395,11 +353,9 @@ These are on the GitHub Project in the To Do.
 - **Customer Reviews:** A form where customers can leave reviews. And admins can display them on the page.
 - **Front-end Admin Page:** An admin page on the webpage where the admin can edit reservations.
 
-[Back to the top](#table-of-contents)
+## 🧪 Testing
 
-## Testing
-
-### W3C - Markup Validation Service
+- W3C - Markup Validation Service
 
 First time running the test, I got a few typo error, double classes.
 
@@ -500,13 +456,13 @@ One error, double class, and just removed `class="btn"`.
   <img src="readme/testing/no-error-message.png" alt="no errors" width="600"/>
 </p>
 
-### The W3C CSS Validation Service
+- The W3C CSS Validation Service
 
 <p align="center">
   <img src="readme/testing/css-no-error-message.png" alt="no errors" width="600"/>
 </p>
 
-### JSLint
+- JSLint
 
 **First try:**
 
@@ -560,29 +516,29 @@ window.alert("Delete URL not configured.");
   <img src="readme/testing/js-no-warnings.png" alt="jslint no errors" width="600"/>
 </p>
 
-### PageSpeed
+- PageSpeed
 
 **Home Page**
 
-- **Mobile:**
 <p align="center">
+  <strong>Mobile</strong></br>
   <img src="readme/testing/pagespeed-home-page-mobile-errors.png" alt="pagespeed home page mobile errors" width="600"/>
 </p>
 
-- **Desktop:**
 <p align="center">
+  <strong>Desktop</strong></br>
   <img src="readme/testing/pagespeed-home-page-desktop-errors.png" alt="pagespeed home page desktop errors" width="600"/>
 </p>
 
 **Menu Page**
 
-- **Mobile:**
 <p align="center">
+  <strong>Mobile</strong></br>
   <img src="readme/testing/pagespeed-menu-page-mobile-errors.png" alt="pagespeed menu page mobile errors" width="600"/>
 </p>
 
-- **Desktop:**
 <p align="center">
+  <strong>Desktop</strong></br>
   <img src="readme/testing/pagespeed-menu-page-desktop-errors.png" alt="pagespeed menu page desktop errors" width="600"/>
 </p>
 
@@ -640,7 +596,7 @@ The only error I got was that some lines were longer than 80 characters, and the
   <img src="readme/testing/django-views.png" alt="views.py" width="600"/>
 </p>
 
-### Manual Testing
+### 🧍‍♂️ Manual Testing
 
 | Feature                       | Action                                   | Expected Result                                                                             | Tested | Passed | Comments                                                                         |
 | ----------------------------- | ---------------------------------------- | ------------------------------------------------------------------------------------------- | ------ | ------ | -------------------------------------------------------------------------------- |
@@ -674,15 +630,11 @@ The only error I got was that some lines were longer than 80 characters, and the
 | Login Form                    | Login to an existing account             | Redirect to the My Bookings Page.                                                           | Yes    | Yes    | Redirected to the My Bookings Page.                                              |
 | Login Form                    | Login to an existing account             | Show successful message.                                                                    | Yes    | Yes    | Success message displayed.                                                       |
 
-[Back to the top](#table-of-contents)
-
-## Bugs
+## 🐞 Bugs
 
 There is no known bugs yet.
 
-[Back to the top](#table-of-contents)
-
-## Credits
+## 📜 Credits
 
 ### Text
 
@@ -715,9 +667,3 @@ There is no known bugs yet.
 - Brigadeiro - https://bonnibakery.com/wp-content/uploads/2024/08/Brigadeiro_206-1.jpg
 - Quindim - https://divaliciousrecipes.com/wp-content/uploads/2014/02/quindim.jpg
 - **Others:** They were generated by Gemini.
-
-[Back to the top](#table-of-contents)
-
-```
-
-```
