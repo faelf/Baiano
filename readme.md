@@ -355,7 +355,9 @@ These are on the GitHub Project in the To Do.
 
 ## 🧪 Testing
 
-- W3C - Markup Validation Service
+### ✅ Validators
+
+#### W3C - Markup Validation Service
 
 First time running the test, I got a few typo error, double classes.
 
@@ -462,7 +464,7 @@ One error, double class, and just removed `class="btn"`.
   <img src="readme/testing/css-no-error-message.png" alt="no errors" width="600"/>
 </p>
 
-- JSLint
+#### JSLint
 
 **First try:**
 
@@ -516,7 +518,7 @@ window.alert("Delete URL not configured.");
   <img src="readme/testing/js-no-warnings.png" alt="jslint no errors" width="600"/>
 </p>
 
-- PageSpeed
+#### PageSpeed
 
 **Home Page**
 
@@ -576,7 +578,7 @@ For the errors below, I changed the secondary button text colour to black, and t
 
 - I decided to keep the white font colour even though accessibility is not 100, this was intentional to maintain visual consistency.
 
-### CI Python Linter
+#### CI Python Linter
 
 The only error I got was that some lines were longer than 80 characters, and they were easy to fix.
 
