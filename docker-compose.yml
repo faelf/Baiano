@@ -1,0 +1,25 @@
+services:
+  baiano:
+    build: .
+    container_name: baiano
+    hostname: penguinlab
+    working_dir: /app
+    ports:
+      - "8005:8000"
+    volumes:
+      - .:/app
+    environment:
+      - SECRET_KEY
+      - DATABASE_URL
+      - DEBUG
+    command: >
+      sh -c "python manage.py migrate &&
+             python manage.py collectstatic --noinput &&
+             python manage.py runserver 0.0.0.0:8000"
+    restart: unless-stopped
+    networks:
+      - cloudflare
+
+networks:
+  cloudflare:
+    external: true
