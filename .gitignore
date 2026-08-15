@@ -1,4 +1,14 @@
-
+# Python
 __pycache__/
-env.py
+*.py[cod]
+
+# macOS
 .DS_Store
+._*
+
+# Environment
+.env
+env.py
+
+# Database
+*.sqlite3
