@@ -1,21 +1,20 @@
 services:
-  baiano:
+  django:
     build: .
     container_name: baiano
-    hostname: penguinlab
-    working_dir: /app
+    hostname: home
     ports:
       - "8005:8000"
-    volumes:
-      - .:/app
     environment:
-      - SECRET_KEY
-      - DATABASE_URL
-      - DEBUG
+      SECRET_KEY: ${SECRET_KEY}
+      DJANGO_DEBUG: ${DJANGO_DEBUG}
+      ALLOWED_HOSTS: ${ALLOWED_HOSTS}
+      DATABASE_URL: ${DATABASE_URL}
+      X_FRAME_OPTIONS: ${X_FRAME_OPTIONS}
     command: >
       sh -c "python manage.py migrate &&
              python manage.py collectstatic --noinput &&
-             python manage.py runserver 0.0.0.0:8000"
+             gunicorn --bind 0.0.0.0:8000 baiano.wsgi:application"
     restart: unless-stopped
     networks:
       - cloudflare
