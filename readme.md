@@ -2,7 +2,7 @@
 
 ![screenshot](/readme/page-screenshot.png)
 
-## 🌍 Overview
+# 🌍 Overview
 
 The Baiano Restaurant is a fictional Brazilian restaurant, and the webpage was developed as a full-stack project for Code Institute Milestone 3. The webpage has a homepage introducing the restaurant, a menu page with its main dishes, and a login system that allows registered users to create, edit, and delete reservations.
 
@@ -10,13 +10,13 @@ Designed with a mobile-first approach, the website is fully responsive to ensure
 
 You can visit the page [here](https://baiano.faelf.uk/)
 
-## 🧭 User Experience (UX)
+# 🧭 User Experience (UX)
 
 Baiano Restaurant’s users are primarily people from Bahia, living abroad, and looking for Bahian food, often browsing on mobile while looking for a place to eat.
 
 Customers want to quickly have a look at the menu with images, check opening hours, and book a table. Customers can manage existing reservations, while staff/admin users can review and update bookings. The experience should feel warm, vibrant, and reminiscent of home, and accessible for all users.
 
-## 🎯 Strategy (Site Goals)
+# 🎯 Strategy (Site Goals)
 
 The website aims to promote Baiano Restaurant by sharing authentic Bahian dishes, and creating a sense of home for people from Bahia living abroad.
 
@@ -28,7 +28,7 @@ A mobile-first design ensures that it looks and feels comfortable on all screen 
 
 For management, the admin area enables staff to review, edit, and organise reservations, helping the restaurant operate more efficiently.
 
-## 🧾 Scope (User Stories)
+# 🧾 Scope (User Stories)
 
 The project is organised and tracked on GitHub Projects, which can be viewed [here](https://github.com/users/faelf/projects/4).
 
@@ -49,7 +49,7 @@ Below are the User Stories, with their acceptance criteria.
 - [Social media links](https://github.com/faelf/baiano/issues/9)
 - [Admin reviews management](https://github.com/faelf/baiano/issues/10)
 
-## 🏗️ Structure (Design Choices)
+# 🏗️ Structure (Design Choices)
 
 **Templates**
 
@@ -65,7 +65,7 @@ Bootstrap was chosen for its ease of creating a responsive design, and minimisin
 
 Images are set with `max-width` to ensure that they stay responsive, and they will not over grow and feel disproportional.
 
-## 🧠 Entity Relationship Diagram (ERD)
+# 🧠 Entity Relationship Diagram (ERD)
 
 The ERD below outlines the relationships between `User` and `Reservation` models.
 
@@ -73,21 +73,21 @@ The ERD below outlines the relationships between `User` and `Reservation` models
   <img src="readme/erd.png" alt="ERD Diagram" width="600"/>
 </p>
 
-## 🩻 Skeleton (Wireframes)
+# 🩻 Skeleton (Wireframes)
 
-**Mobile**
+## Mobile
 
 ![Mobile](/readme/wireframes/mobile.png)
 
-**Tablet**
+## Tablet
 
 ![Tablet](/readme/wireframes/tablet.png)
 
-**Desktop**
+## Desktop
 
 ![Desktop](/readme/wireframes/desktop.png)
 
-## 🖌️ Surface (Visual Design)
+# 🖌️ Surface (Visual Design)
 
 **Colour palette:**
 
@@ -104,16 +104,16 @@ The colour palette is inspired by the vibrant culture of Bahia.
 - **Logo:** [Amatic SC](https://fonts.google.com/specimen/Amatic+SC) - I chose Amatic SC for the logo because its handwritten style feels very Bahian.
 - **Body Text:** [Nunito](https://fonts.google.com/specimen/Nunito) - I chose Nunito because it's a modern sans-serif font. Its rounded letters give it a friendly and welcoming look.
 
-## ⚙️ Technologies Used
+# ⚙️ Technologies Used
 
-### 💬 Languages
+## 💬 Languages
 
 - HTML
 - CSS
 - JavaScript
 - Python
 
-### 🧩 Libraries & Frameworks
+## 🧩 Libraries & Frameworks
 
 - [Bootstrap](https://getbootstrap.com/docs/5.2/)
 - [Django](https://docs.djangoproject.com/en/5.2/topics/install/)
@@ -123,7 +123,7 @@ The colour palette is inspired by the vibrant culture of Bahia.
 - [whitenoise](https://whitenoise.readthedocs.io/en/stable/index.html)
 - [django-allauth](https://django-allauth.readthedocs.io/en/latest/installation.html)
 
-### 🛠️ Development Tools
+## 🛠️ Development Tools
 
 - [Balsamiq](https://balsamiq.com/)
 - [VS Code](https://code.visualstudio.com/)
@@ -132,108 +132,46 @@ The colour palette is inspired by the vibrant culture of Bahia.
 - [Realfavicon](https://realfavicongenerator.net/)
 - [Reduceimages](https://www.reduceimages.com/)
 
-## 🚀 Deployment
+# 🚀 Deployment
 
-A step-by-step guide to deploying your Django project to Heroku on Windows.
+This project is containerised using Docker. Docker handles the Python environment, application dependencies, database migrations, static files, and Gunicorn application server.
 
-**GitHub Setup**
+**Steps:**
 
-1. Create a new repository on GitHub.
-2. Clone the repository to your local machine.
+1. Clone the repository and navigate to the project directory:
 
-**VS Code Setup**
-
-1. Open the cloned repository in VS Code.
-2. Create a virtual environment.
-3. Install Django. `pip install django`
-4. Create the project. `django-admin startproject (Project name) .`
-5. Create an app. `python manage.py startapp (App name)`
-6. Create a simple HttpResponse view for the homepage.
-7. Install Gunicorn. `pip install gunicorn`
-8. Create a `Procfile` with the command: `web: gunicorn (Project name).wsgi `
-9. In settings.py add:
-
-```python
-WSGI_APPLICATION = '(Project name).wsgi.application'
+```shell
+mkdir Baiano && cd Baiano
+git clone https://github.com/faelf/Baiano.git .
 ```
 
-10. Specify the Python version for your development environment using a `.python-version` file.
-11. Add `heroku` and `localhost` to the `ALLOWED_HOSTS` in `settings.py`.
+2. Create a `.env` file in the root directory of the project and update the values to match your environment:
 
-```python
-ALLOWED_HOSTS = [
-    '.herokuapp.com',
-    'localhost',
-    '127.0.0.1',
-]
+```shell
+SECRET_KEY="secret-key"
+DJANGO_DEBUG="False"
+ALLOWED_HOSTS="domain.com,localhost,127.0.0.1"
+DATABASE_URL="database-url"
+X_FRAME_OPTIONS="Deny"
 ```
 
-12. Create a database.
-13. Create an `env.py` file and add the `DATABASE_URL` and `SECRET_KEY`.
+3. Copy `docker-compose.yml` to `docker-compose.prod.yml` and update the values to match your environment:
 
-```python
-import os
-
-os.environ.setdefault(
-    "DATABASE_URL", "(Database URL)")
-
-os.environ.setdefault("SECRET_KEY", "(Create a key)")
+```shell
+cp docker-compose.yml docker-compose.prod.yml
 ```
 
-14. Install `psycopg2`. `pip install psycopg2`
-15. Install `dj-database-url`. `pip install dj-database-url`
-16. Add to `settings.py`.
+4. Build and run the container:
 
-```python
-import os
-
-import dj_database_url
-if os.path.isfile('env.py'):
-    import env
-
-DATABASES = {
-    'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
-}
+```shell
+docker compose -f docker-compose.prod.yml up --build -d
 ```
 
-17. Run your first migration `python manage.py migrate`.
-18. Create a superuser. `python manage.py createsuperuser`
-19. Install `whitenoise` for static files. `pip install whitenoise`
-20. Edit your `settings.py` file and add WhiteNoise to the `MIDDLEWARE list`, above all other middleware apart from `Django’s SecurityMiddleware`:
+5. Navigate to your deployed instance. 🙂
 
-```python
-MIDDLEWARE = [
-    # ...
-    "django.middleware.security.SecurityMiddleware",
-    "whitenoise.middleware.WhiteNoiseMiddleware",
-    # ...
-]
-```
+> **Note:** An instance of this application has been deployed using a Cloudflare Tunnel. You can access the live deployment [here](https://baiano.faelf.uk/).
 
-21. Add the following to the bottom of your `settings.py` file:
-
-```python
-STATIC_ROOT = BASE_DIR / "staticfiles"
-```
-
-22. Run `collectstatic` to gather static files for production. `python manage.py collectstatic`
-23. Create requirements file. `pip freeze > requirements.txt`
-24. Commit all changes and push to GitHub.
-
-**Heroku Deployment**
-
-1. Log in to the Heroku dashboard.
-2. Click **New** and select **Create new app**.
-3. Enter a unique app name.
-4. Choose the deployment region.
-5. In **Settings**, add all necessary config vars including:
-   - Database URL
-   - Secret key
-6. Under **Deployment method**, connect the app to your GitHub repository.
-7. Press **Deploy**
-8. Test the deployed site thoroughly to ensure all features work as expected.
-
-## ✨ Existing Features
+# ✨ Existing Features
 
 **Navigation**
 
@@ -345,7 +283,7 @@ The `My Bookings` page is designed as a user page, where customers can view and 
   <img src="readme/features/pwa.png" alt="PWA" width="200"/>
 </p>
 
-## 🔮 Future Features
+# 🔮 Future Features
 
 These are on the GitHub Project in the To Do.
 
@@ -355,11 +293,11 @@ These are on the GitHub Project in the To Do.
 - **Customer Reviews:** A form where customers can leave reviews. And admins can display them on the page.
 - **Front-end Admin Page:** An admin page on the webpage where the admin can edit reservations.
 
-## 🧪 Testing
+# 🧪 Testing
 
-### ✅ Validators
+## ✅ Validators
 
-#### W3C - Markup Validation Service
+### W3C - Markup Validation Service
 
 First time running the test, I got a few typo error, double classes.
 
@@ -466,7 +404,7 @@ One error, double class, and just removed `class="btn"`.
   <img src="readme/testing/css-no-error-message.png" alt="no errors" width="600"/>
 </p>
 
-#### JSLint
+### JSLint
 
 **First try:**
 
@@ -520,7 +458,7 @@ window.alert("Delete URL not configured.");
   <img src="readme/testing/js-no-warnings.png" alt="jslint no errors" width="600"/>
 </p>
 
-#### PageSpeed
+### PageSpeed
 
 **Home Page**
 
@@ -580,7 +518,7 @@ For the errors below, I changed the secondary button text colour to black, and t
 
 - I decided to keep the white font colour even though accessibility is not 100, this was intentional to maintain visual consistency.
 
-#### CI Python Linter
+### CI Python Linter
 
 The only error I got was that some lines were longer than 80 characters, and they were easy to fix.
 
@@ -634,28 +572,28 @@ The only error I got was that some lines were longer than 80 characters, and the
 | Login Form                    | Login to an existing account             | Redirect to the My Bookings Page.                                                           | Yes    | Yes    | Redirected to the My Bookings Page.                                              |
 | Login Form                    | Login to an existing account             | Show successful message.                                                                    | Yes    | Yes    | Success message displayed.                                                       |
 
-## 🐞 Bugs
+# 🐞 Bugs
 
 There is no known bugs yet.
 
-## 📜 Credits
+# 📜 Credits
 
-### Text
+## Text
 
 - The text on this webpage was created by [Gemini](https://gemini.google.com/).
 
-### Code
+## Code
 
 - [Traversy Media - Python Django 7 Hour Course](https://www.youtube.com/watch?v=PtQiiknWUcI&list=LL&index=11) - Great crash course on Django.
 - [Cory Schaffer - Python Django Tutorial](https://www.youtube.com/watch?v=UmljXZIypDc&list=PL-osiE80TeTtoQCKZ03TU5fNfx2UY6U4p) - Amazing YouTube tutorial on Django.
 - [Kevin Powell](https://www.youtube.com/@KevinPowell) - Kevin's YouTube channel is focused on CSS, with amazing examples and short tutorials.
 
-### Reference Pages
+## Reference Pages
 
 - [Bootstrap](https://getbootstrap.com/docs/5.2/)
 - [Django](https://docs.djangoproject.com/en/5.2/topics/install/)
 
-### Images
+## Images
 
 - **Menu:** The images were taken from the pages below
 - Bobó de Camarão - https://www.sumerbol.com.br/uploads/images/2021/06/bobo-de-camarao-1134-1624568462.jpg
