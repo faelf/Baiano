@@ -538,7 +538,7 @@ The only error I got was that some lines were longer than 80 characters, and the
   <img src="readme/testing/django-views.png" alt="views.py" width="600"/>
 </p>
 
-### 🧍‍♂️ Manual Testing
+## 🧍‍♂️ Manual Testing
 
 | Feature                       | Action                                   | Expected Result                                                                             | Tested | Passed | Comments                                                                         |
 | ----------------------------- | ---------------------------------------- | ------------------------------------------------------------------------------------------- | ------ | ------ | -------------------------------------------------------------------------------- |
